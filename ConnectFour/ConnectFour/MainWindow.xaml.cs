@@ -52,23 +52,28 @@ namespace ConnectFour
             timer.Start();
             gameGrid.Children.Clear();
             inputLock = false;
+            Background();
             WorkButton();
 
         }
 
-        //private void Background()
-        //{
-        //    for(int row=0; row < board.Gameboard.GetLength(0); row++)
-        //    {
-        //        for(int column=0; column< board.Gameboard.GetLength(1); column++)
-        //        {
-        //            Rectangle square = new Rectangle();
-        //            square.Height = chipSize;
-        //            square.Width = chipSize;
-                    
-        //        }
-        //    }
-        //}
+        private void Background()
+        {
+            for (int row = 0; row < board.Gameboard.GetLength(0); row++)
+            {
+                for (int column = 0; column < board.Gameboard.GetLength(1); column++)
+                {
+                    Rectangle square = new Rectangle();
+                    square.Height = chipSize;
+                    square.Width = chipSize;
+                    square.Fill = (column % 2 == 0) ? Brushes.White : Brushes.WhiteSmoke;
+                    Canvas.SetBottom(square, chipSize * row);
+                    Canvas.SetRight(square, chipSize * column);
+                    gameGrid.Children.Add(square);
+
+                }
+            }
+        }
 
         private void DrawCircle(Side side, int col)
         {
