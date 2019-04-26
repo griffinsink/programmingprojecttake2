@@ -57,10 +57,16 @@ namespace ConnectFour
 
         public Side Winner(int row, int col)
         {
+            int point = 0;
+
             if (Gameboard[row, col] != Side.None &&
                 (VerticalConnectFour(row, col) || HorizontalConnectFour(row, col) ||
                 ForwardDiagonalConnectFour(row, col) || BackwardDiagonalConnectFour(row, col)))
+            {
+                point++;
                 return Gameboard[row, col];
+            }
+
             else
             {
                 return Side.None;

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Timers;
 
 namespace ConnectFour
 {
@@ -20,11 +22,11 @@ namespace ConnectFour
     /// </summary>
     public partial class MainWindow : Window
     {
-        const int chipSize = 80;
+        const int chipSize = 60;
 
         private boardgame board;
         private bool inputLock;
-
+        private DispatcherTimer timer;
         private Side currentSide;
         private Ellipse CurrentCircle;
         private int currentColumn;
@@ -45,8 +47,12 @@ namespace ConnectFour
             inputLock = true;
             board = new boardgame(6, 7);
             currentSide = Side.Red;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            timer.Start();
             gameGrid.Children.Clear();
-            
+            inputLock = false;
+            WorkButton();
 
         }
 
@@ -70,12 +76,29 @@ namespace ConnectFour
             Ellipse circle = new Ellipse();
             circle.Height = chipSize;
             circle.Width = chipSize;
-            circle.Fill = (side == Side.Red) ? Brushes.RoyalBlue : Brushes.Crimson;
+            circle.Fill = (side == Side.Red) ? Brushes.DarkKhaki : Brushes.Crimson;
             Canvas.SetTop(circle, 0);
             Canvas.SetLeft(circle, col * 80);
             gameGrid.Children.Add(circle);
             CurrentCircle = circle;
+            timer.Tick += dropping;
 
+        }
+
+        private void dropping(object sender, EventArgs e)
+        {
+            int dropL = chipSize * (board.Gameboard.GetLength(1) - 1 - board.PiecesInCol(currentColumn));
+            int speed = 40;
+            if (Canvas.GetTop(CurrentCircle) < dropL)
+            {
+                Canvas.SetTop(CurrentCircle, Canvas.GetTop(CurrentCircle) + speed);
+            }
+            else
+            {
+                timer.Tick -= dropping;
+                inputLock = false;
+
+            }
         }
         
         private void Button_Click(int column)
@@ -86,12 +109,35 @@ namespace ConnectFour
                 if (success)
                 {
                     currentColumn = column;
+                    DrawCircle(currentSide, column);
+                    
                    
                 }
                     
             }
         }
 
+        public void StopButtons()
+        {
+            Button1.IsEnabled = false;
+            Button2.IsEnabled = false;
+            Button3.IsEnabled = false;
+            Button4.IsEnabled = false;
+            Button5.IsEnabled = false;
+            Button6.IsEnabled = false;
+            Button7.IsEnabled = false;
+        }
+
+        public void WorkButton()
+        {
+            Button1.IsEnabled = true;
+            Button2.IsEnabled = true;
+            Button3.IsEnabled = true;
+            Button4.IsEnabled = true;
+            Button5.IsEnabled = true;
+            Button6.IsEnabled = true;
+            Button7.IsEnabled = true;
+        }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
@@ -141,6 +187,16 @@ namespace ConnectFour
         private void ButtonRestart_Click(object sender, RoutedEventArgs e)
         {
             NewGame();
+        }
+
+        private void RedScore_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Red wins!");
+        }
+
+        private void BlueScore_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Blue wins!");
         }
     }
 }
