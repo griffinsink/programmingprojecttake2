@@ -24,6 +24,10 @@ namespace ConnectFour
 
         private boardgame board;
         private bool inputLock;
+
+        private Side currentSide;
+        private Ellipse CurrentCircle;
+        private int currentColumn;
         
 
 
@@ -40,7 +44,37 @@ namespace ConnectFour
         {
             inputLock = true;
             board = new boardgame(6, 7);
+            currentSide = Side.Red;
+            gameGrid.Children.Clear();
+            
 
+        }
+
+        //private void Background()
+        //{
+        //    for(int row=0; row < board.Gameboard.GetLength(0); row++)
+        //    {
+        //        for(int column=0; column< board.Gameboard.GetLength(1); column++)
+        //        {
+        //            Rectangle square = new Rectangle();
+        //            square.Height = chipSize;
+        //            square.Width = chipSize;
+                    
+        //        }
+        //    }
+        //}
+
+        private void DrawCircle(Side side, int col)
+        {
+            inputLock = true;
+            Ellipse circle = new Ellipse();
+            circle.Height = chipSize;
+            circle.Width = chipSize;
+            circle.Fill = (side == Side.Red) ? Brushes.RoyalBlue : Brushes.Crimson;
+            Canvas.SetTop(circle, 0);
+            Canvas.SetLeft(circle, col * 80);
+            gameGrid.Children.Add(circle);
+            CurrentCircle = circle;
 
         }
         
