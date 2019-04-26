@@ -13,7 +13,6 @@
             <Label Content="Blue Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,195,0,0" Width="85" FontFamily="Segoe UI Black" FontSize="14"/>
             <ListBox HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="70" Margin="45,115,0,0"/>
             <ListBox HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="70" Margin="45,235,0,0"/>
-            <Grid HorizontalAlignment="Left" Height="405" Margin="175,60,-525,0" VerticalAlignment="Top" Width="525"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="525" Margin="170,0,-3,0" Background="#FF999999"/>
         <Label x:Name="titleLabel" Content="Connect 4" HorizontalAlignment="Center" Margin="365,-2,207,0" Width="120" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" Foreground="#FFF3F1F1"/>
@@ -24,6 +23,96 @@
         <Button x:Name="Button5" Grid.Column="5" Grid.ColumnSpan="2" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="470,40,0,0"/>
         <Button x:Name="Button6" Grid.Column="6" Grid.ColumnSpan="2" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="545,40,0,0"/>
         <Button x:Name="Button7" Grid.Column="7" Grid.ColumnSpan="2" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="620,40,-3,0"/>
+        <Grid x:Name="grid" HorizontalAlignment="Left" Height="405" Margin="170,60,-3.667,-3" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" Background="#FFF6E6E6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="73*"/>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="66*"/>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="65*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="78*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="76*"/>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle Grid.Column="0"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="White" />
+
+            <Rectangle Grid.Column="2"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="White" />
+
+            <Rectangle Grid.Column="4"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="White" />
+
+            <Rectangle Grid.Column="6"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="White" />
+
+            <Rectangle Grid.Column="1"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.Column="3"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.Column="5"
+               Grid.RowSpan="6"
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="0" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="1" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="2" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="3" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="4" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="6" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+            <Rectangle Grid.ColumnSpan= "7"
+               Grid.Row="6" 
+               Stroke="Black"
+               Fill="Transparent" />
+
+        </Grid>
 
     </Grid>
 </Window>
