@@ -132,13 +132,16 @@ namespace ConnectFour
                 if (Side.Red == winner)
                 {
                     redCount++;
-                    redScore
+                    redScore.Items.Add(redCount);
+                    MessageBox.Show("Red wins!");
                     
                 }
                 else if (Side.Black == winner)
                 {
                     
                     blackCount++;
+                    blueScore.Items.Add(blackCount);
+                    MessageBox.Show("Blue wins!");
                 }
                 StopButtons();
        

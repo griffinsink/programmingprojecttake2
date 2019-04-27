@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="491.4" Width="698.2">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175" Background="#FFD13A3A" Margin="-5,0,0,-3.4">
+        <Grid x:Name="BlueScore" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175" Background="#FFD13A3A" Margin="-5,0,0,-3.4">
             <Button x:Name="ButtonRestart" Content="New Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="40,420,0,0" Height="40" Click="ButtonRestart_Click"/>
             <Label Content="Red Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="95" FontFamily="Segoe UI Black" FontSize="14"/>
             <Label Content="Blue Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,195,0,0" Width="85" FontFamily="Segoe UI Black" FontSize="14"/>
-            <ListBox x:Name="redScore" HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="70" Margin="45,115,0,0" SelectionChanged="RedScore_SelectionChanged"/>
-            <ListBox x:Name="BlueScore" HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="70" Margin="45,235,0,0" SelectionChanged="BlueScore_SelectionChanged"/>
+            <ListBox x:Name="redScore" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="80" Margin="45,110,0,0" SelectionChanged="RedScore_SelectionChanged"/>
+            <ListBox x:Name="blueScore" HorizontalAlignment="Left" Height="70" Margin="40,240,0,0" VerticalAlignment="Top" Width="85"/>
+
         </Grid>
 
         <Button x:Name="Button1" Grid.Column="1" Click="Button1_Click" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="170,40,0,0"/>
@@ -27,32 +28,32 @@
         <Label x:Name="titleLabel" Content="Connect 4" HorizontalAlignment="Center" Margin="365,-2,207,0" Width="120" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" Foreground="#FFF3F1F1"/>
         <!--<Border>-->
 
-            <Grid x:Name="gameGrid"  Height="400" Margin="170,60,-3,0" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" Background="#FFF6E6E6">
+        <Grid x:Name="gameGrid"  Height="400" Margin="170,60,-3,0" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" Background="#FFF6E6E6">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
-                <Canvas x:Name="gameCanvas" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="525" Margin="0,0,-0.2,-5"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-            </Grid>
+            <Canvas x:Name="gameCanvas" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="525" Margin="0,0,-0.2,-5"/>
+
+        </Grid>
         <!--</Border>-->
 
-       
+
 
 
     </Grid>
