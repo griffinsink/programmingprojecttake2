@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ConnectFour"
         mc:Ignorable="d"
         Title="MainWindow" Height="491.4" Width="698.2">
-    <Grid Margin="0,0,0,0">
+    <Grid>
         <Grid HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175" Background="#FFD13A3A" Margin="-5,0,0,-3.4">
             <Button x:Name="ButtonRestart" Content="New Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="40,420,0,0" Height="40" Click="ButtonRestart_Click"/>
             <Label Content="Red Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="95" FontFamily="Segoe UI Black" FontSize="14"/>
@@ -25,92 +25,34 @@
 
         <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="525" Margin="170,0,-3,0" Background="#FF999999"/>
         <Label x:Name="titleLabel" Content="Connect 4" HorizontalAlignment="Center" Margin="365,-2,207,0" Width="120" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" Foreground="#FFF3F1F1"/>
-        <Border>
-            
-        <Grid x:Name="gameGrid" HorizontalAlignment="Left" Height="400" Margin="170,60,-3,0" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" Background="#FFF6E6E6">
+        <!--<Border>-->
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+            <Grid x:Name="gameGrid"  Height="400" Margin="170,60,-3,0" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" Background="#FFF6E6E6">
 
-        </Grid>
-        </Border>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Canvas x:Name="gameCanvas" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="525" Margin="0,0,-0.2,-5"/>
 
-        <!--<Rectangle Grid.Column="0"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="White" />
+            </Grid>
+        <!--</Border>-->
 
-            <Rectangle Grid.Column="2"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="White" />
-
-            <Rectangle Grid.Column="4"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="White" />
-
-            <Rectangle Grid.Column="6"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="White" />
-
-            <Rectangle Grid.Column="1"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.Column="3"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.Column="5"
-               Grid.RowSpan="6"
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="0" 
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="1" 
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="2" 
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="3" 
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="4" 
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="6" 
-               Stroke="Black"
-               Fill="Transparent" />
-
-            <Rectangle Grid.ColumnSpan= "7"
-               Grid.Row="6" 
-               Stroke="Black"
-               Fill="Transparent" />-->
+       
 
 
     </Grid>

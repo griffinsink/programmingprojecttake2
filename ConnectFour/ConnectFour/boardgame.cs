@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConnectFour
 {
 
-    public enum Side { None, Red, Blue };
+    public enum Side { None, Red, Black };
 
     public class boardgame
     {
@@ -25,8 +25,6 @@ namespace ConnectFour
         {
             for (int col = 0; col < this.Gameboard.GetLength(1); col++)
             {
-
-
                 if (Gameboard[0, col] == Side.None)
                 {
 

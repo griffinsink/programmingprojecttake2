@@ -22,7 +22,7 @@ namespace ConnectFour
     /// </summary>
     public partial class MainWindow : Window
     {
-        const int chipSize = 60;
+        const int chipSize = 40;
 
         private boardgame board;
         private bool inputLock;
@@ -48,11 +48,11 @@ namespace ConnectFour
             board = new boardgame(6, 7);
             currentSide = Side.Red;
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 50);
             timer.Start();
-            gameGrid.Children.Clear();
+            gameCanvas.Children.Clear();
             inputLock = false;
-            Background();
+            //Background();
             WorkButton();
 
         }
@@ -66,10 +66,10 @@ namespace ConnectFour
                     Rectangle square = new Rectangle();
                     square.Height = chipSize;
                     square.Width = chipSize;
-                    square.Fill = (column % 2 == 0) ? Brushes.White : Brushes.WhiteSmoke;
+                    //square.Fill = (column % 2 == 0) ? Brushes.White : Brushes.WhiteSmoke;
                     Canvas.SetBottom(square, chipSize * row);
                     Canvas.SetRight(square, chipSize * column);
-                    gameGrid.Children.Add(square);
+                    gameCanvas.Children.Add(square);
 
                 }
             }
@@ -81,10 +81,10 @@ namespace ConnectFour
             Ellipse circle = new Ellipse();
             circle.Height = chipSize;
             circle.Width = chipSize;
-            circle.Fill = (side == Side.Red) ? Brushes.DarkKhaki : Brushes.Crimson;
+            circle.Fill = (side == Side.Black) ? Brushes.Red : Brushes.Black;
             Canvas.SetTop(circle, 0);
             Canvas.SetLeft(circle, col * 80);
-            gameGrid.Children.Add(circle);
+            gameCanvas.Children.Add(circle);
             CurrentCircle = circle;
             timer.Tick += dropping;
 
@@ -105,7 +105,7 @@ namespace ConnectFour
 
             }
         }
-        
+
         private void Button_Click(int column)
         {
             if(inputLock == false)
@@ -115,11 +115,44 @@ namespace ConnectFour
                 {
                     currentColumn = column;
                     DrawCircle(currentSide, column);
-                    
+                    AfterTurn();
                    
                 }
                     
             }
+        }
+
+        private void AfterTurn()
+        {
+            Side winner = board.Winner();
+            int redCount = 0;
+            int blackCount = 0;
+            if(winner != Side.None)
+            {
+                if (Side.Red == winner)
+                {
+                    redCount++;
+                    redScore
+                    
+                }
+                else if (Side.Black == winner)
+                {
+                    
+                    blackCount++;
+                }
+                StopButtons();
+       
+            }
+            else if (board.Tie())
+            {
+                StopButtons();
+                
+            }
+            else
+            {
+            currentSide = (currentSide == Side.Black) ? Side.Red : Side.Black;
+            }
+
         }
 
         public void StopButtons()
@@ -196,11 +229,14 @@ namespace ConnectFour
 
         private void RedScore_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            AfterTurn();
+
             MessageBox.Show("Red wins!");
         }
 
         private void BlueScore_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            AfterTurn();
             MessageBox.Show("Blue wins!");
         }
     }
