@@ -9,23 +9,23 @@ namespace ConnectFour
 
     public enum Side { None, Red, Black };
 
-    public class boardgame
+    public class bg
     {
-        public Side[,] Gameboard { get; private set; }
+        public Side[,] gb { get; private set; }
 
-        public boardgame(int rows, int columns)
+        public bg(int rows, int columns)
         {
-            Gameboard = new Side[rows, columns];
-            for (int row = 0; row < this.Gameboard.GetLength(0); row++)
-                for (int col = 0; col < this.Gameboard.GetLength(1); col++)
-                    this.Gameboard[row, col] = Side.None;
+            gb = new Side[rows, columns];
+            for (int row = 0; row < this.gb.GetLength(0); row++)
+                for (int col = 0; col < this.gb.GetLength(1); col++)
+                    this.gb[row, col] = Side.None;
         }
 
         public bool Tie()
         {
-            for (int col = 0; col < this.Gameboard.GetLength(1); col++)
+            for (int col = 0; col < this.gb.GetLength(1); col++)
             {
-                if (Gameboard[0, col] == Side.None)
+                if (gb[0, col] == Side.None)
                 {
 
                     return false;
@@ -39,13 +39,13 @@ namespace ConnectFour
 
 
 
-            for (int row = 0; row < this.Gameboard.GetLength(0); row++)
+            for (int row = 0; row < this.gb.GetLength(0); row++)
             {
-                for (int col = 0; col < this.Gameboard.GetLength(1); col++)
+                for (int col = 0; col < this.gb.GetLength(1); col++)
                 {
-                    if (Gameboard[row, col] != Side.None && (VerticalConnectFour(row, col) || HorizontalConnectFour(row, col) || ForwardDiagonalConnectFour(row, col) || BackwardDiagonalConnectFour(row, col)))
+                    if (gb[row, col] != Side.None && (VertFour(row, col) || HorFour(row, col) || ForDiagFour(row, col) || BackDiagFour(row, col)))
                     {
-                        return Gameboard[row, col];
+                        return gb[row, col];
                     }
                 }
                 
@@ -57,12 +57,12 @@ namespace ConnectFour
         {
             int point = 0;
 
-            if (Gameboard[row, col] != Side.None &&
-                (VerticalConnectFour(row, col) || HorizontalConnectFour(row, col) ||
-                ForwardDiagonalConnectFour(row, col) || BackwardDiagonalConnectFour(row, col)))
+            if (gb[row, col] != Side.None &&
+                (VertFour(row, col) || HorFour(row, col) ||
+                ForDiagFour(row, col) || BackDiagFour(row, col)))
             {
                 point++;
-                return Gameboard[row, col];
+                return gb[row, col];
             }
 
             else
@@ -72,24 +72,24 @@ namespace ConnectFour
 
         }
 
-        private bool VerticalConnectFour(int row, int col)
+        private bool VertFour(int row, int col)
         {
-            if (Gameboard[row, col] == Side.None)
+            if (gb[row, col] == Side.None)
             {
                 return false;
             }
             int count = 1;
-            int rowCursor = row - 1;
-            while (rowCursor >= 0 && Gameboard[rowCursor, col] == Gameboard[row, col])
+            int RowCur = row - 1;
+            while (RowCur >= 0 && gb[RowCur, col] == gb[row, col])
             {
                 count++;
-                rowCursor--;
+                RowCur--;
             }
-            rowCursor = row + 1;
-            while (rowCursor < Gameboard.GetLength(0) && Gameboard[rowCursor, col] == Gameboard[row, col])
+            RowCur = row + 1;
+            while (RowCur < gb.GetLength(0) && gb[RowCur, col] == gb[row, col])
             {
                 count++;
-                rowCursor++;
+                RowCur++;
             }
             if (count < 4)
             {
@@ -99,24 +99,24 @@ namespace ConnectFour
             return true;
         }
 
-        private bool HorizontalConnectFour(int row, int col)
+        private bool HorFour(int row, int col)
         {
-            if (Gameboard[row, col] == Side.None)
+            if (gb[row, col] == Side.None)
             {
                 return false;
             }
             int count = 1;
-            int colCursor = col - 1;
-            while (colCursor >= 0 && Gameboard[row, colCursor] == Gameboard[row, col])
+            int ColCur = col - 1;
+            while (ColCur >= 0 && gb[row, ColCur] == gb[row, col])
             {
                 count++;
-                colCursor--;
+                ColCur--;
             }
-            colCursor = col + 1;
-            while (colCursor < Gameboard.GetLength(1) && Gameboard[row, colCursor] == Gameboard[row, col])
+            ColCur = col + 1;
+            while (ColCur < gb.GetLength(1) && gb[row, ColCur] == gb[row, col])
             {
                 count++;
-                colCursor++;
+                ColCur++;
             }
             if (count < 4)
             {
@@ -125,26 +125,26 @@ namespace ConnectFour
             return true;
         }
 
-        private bool ForwardDiagonalConnectFour(int row, int col)
+        private bool ForDiagFour(int row, int col)
         {
-            if (Gameboard[row, col] == Side.None)
+            if (gb[row, col] == Side.None)
                 return false;
             int count = 1;
-            int rowCursor = row - 1;
-            int colCursor = col + 1;
-            while (rowCursor >= 0 && colCursor < Gameboard.GetLength(1) && Gameboard[rowCursor, colCursor] == Gameboard[row, col])
+            int RowCur = row - 1;
+            int ColCur = col + 1;
+            while (RowCur >= 0 && ColCur < gb.GetLength(1) && gb[RowCur, ColCur] == gb[row, col])
             {
                 count++;
-                rowCursor--;
-                colCursor++;
+                RowCur--;
+                ColCur++;
             }
-            rowCursor = row + 1;
-            colCursor = col - 1;
-            while (rowCursor < Gameboard.GetLength(0) && colCursor >= 0 && Gameboard[rowCursor, colCursor] == Gameboard[row, col])
+            RowCur = row + 1;
+            ColCur = col - 1;
+            while (RowCur < gb.GetLength(0) && ColCur >= 0 && gb[RowCur, ColCur] == gb[row, col])
             {
                 count++;
-                rowCursor++;
-                colCursor--;
+                RowCur++;
+                ColCur--;
             }
             if (count < 4)
             {
@@ -155,26 +155,26 @@ namespace ConnectFour
 
         }
 
-        private bool BackwardDiagonalConnectFour(int row, int col)
+        private bool BackDiagFour(int row, int col)
         {
-            if (Gameboard[row, col] == Side.None)
+            if (gb[row, col] == Side.None)
                 return false;
             int count = 1;
-            int rowCursor = row + 1;
-            int colCursor = col + 1;
-            while (rowCursor < Gameboard.GetLength(0) && colCursor < Gameboard.GetLength(1) && Gameboard[rowCursor, colCursor] == Gameboard[row, col])
+            int RowCur = row + 1;
+            int ColCur = col + 1;
+            while (RowCur < gb.GetLength(0) && ColCur < gb.GetLength(1) && gb[RowCur, ColCur] == gb[row, col])
             {
                 count++;
-                rowCursor++;
-                colCursor++;
+                RowCur++;
+                ColCur++;
             }
-            rowCursor = row - 1;
-            colCursor = col - 1;
-            while (rowCursor >= 0 && colCursor >= 0 && Gameboard[rowCursor, colCursor] == Gameboard[row, col])
+            RowCur = row - 1;
+            ColCur = col - 1;
+            while (RowCur >= 0 && ColCur >= 0 && gb[RowCur, ColCur] == gb[row, col])
             {
                 count++;
-                rowCursor--;
-                colCursor--;
+                RowCur--;
+                ColCur--;
             }
             if (count < 4)
                 return false;
@@ -184,11 +184,11 @@ namespace ConnectFour
         public bool Insert(Side side, int column)
         {
 
-            for(int row = Gameboard.GetLength(0) - 1; row >= 0; row--)
+            for(int row = gb.GetLength(0) - 1; row >= 0; row--)
             {
-                if (Gameboard[row, column] == Side.None)
+                if (gb[row, column] == Side.None)
                 {
-                    Gameboard[row, column] = side;
+                    gb[row, column] = side;
                     return true;
                 }
             }
@@ -196,18 +196,18 @@ namespace ConnectFour
         }
 
 
-        public int PiecesInCol(int column)
+        public int ColPieces(int column)
         {
-            int numOfPieces = 0;
-            for(int row = Gameboard.GetLength(0) -1; row >=0; row--)
+            int piecesNum = 0;
+            for(int row = gb.GetLength(0) -1; row >=0; row--)
             {
-                if (Gameboard[row,column] != Side.None)
+                if (gb[row,column] != Side.None)
                 {
-                    numOfPieces++;
+                    piecesNum++;
                 }
             }
 
-            return numOfPieces;
+            return piecesNum;
 
         }
 

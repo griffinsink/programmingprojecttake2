@@ -24,12 +24,12 @@ namespace ConnectFour
     {
         const int chipSize = 40;
 
-        private boardgame board;
+        private bg board;
         private bool inputLock;
         private DispatcherTimer timer;
-        private Side currentSide;
-        private Ellipse CurrentCircle;
-        private int currentColumn;
+        private Side CurSide;
+        private Ellipse CurCir;
+        private int CurCol;
         
 
 
@@ -45,10 +45,10 @@ namespace ConnectFour
         private void NewGame()
         {
             inputLock = true;
-            board = new boardgame(6, 7);
-            currentSide = Side.Red;
+            board = new bg(6, 7);
+            CurSide = Side.Red;
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 50);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 15);
             timer.Start();
             gameCanvas.Children.Clear();
             inputLock = false;
@@ -59,9 +59,9 @@ namespace ConnectFour
 
         private void Background()
         {
-            for (int row = 0; row < board.Gameboard.GetLength(0); row++)
+            for (int row = 0; row < board.gb.GetLength(0); row++)
             {
-                for (int column = 0; column < board.Gameboard.GetLength(1); column++)
+                for (int column = 0; column < board.gb.GetLength(1); column++)
                 {
                     Rectangle square = new Rectangle();
                     square.Height = chipSize;
@@ -85,18 +85,18 @@ namespace ConnectFour
             Canvas.SetTop(circle, 0);
             Canvas.SetLeft(circle, col * 80);
             gameCanvas.Children.Add(circle);
-            CurrentCircle = circle;
+            CurCir = circle;
             timer.Tick += dropping;
 
         }
 
         private void dropping(object sender, EventArgs e)
         {
-            int dropL = chipSize * (board.Gameboard.GetLength(1) - 1 - board.PiecesInCol(currentColumn));
+            int dropL = chipSize * (board.gb.GetLength(1) - 1 - board.ColPieces(CurCol));
             int speed = 40;
-            if (Canvas.GetTop(CurrentCircle) < dropL)
+            if (Canvas.GetTop(CurCir) < dropL)
             {
-                Canvas.SetTop(CurrentCircle, Canvas.GetTop(CurrentCircle) + speed);
+                Canvas.SetTop(CurCir, Canvas.GetTop(CurCir) + speed);
             }
             else
             {
@@ -110,11 +110,11 @@ namespace ConnectFour
         {
             if(inputLock == false)
             {
-                bool success = board.Insert(currentSide, column);
+                bool success = board.Insert(CurSide, column);
                 if (success)
                 {
-                    currentColumn = column;
-                    DrawCircle(currentSide, column);
+                    CurCol = column;
+                    DrawCircle(CurSide, column);
                     AfterTurn();
                    
                 }
@@ -153,7 +153,7 @@ namespace ConnectFour
             }
             else
             {
-            currentSide = (currentSide == Side.Black) ? Side.Red : Side.Black;
+            CurSide = (CurSide == Side.Black) ? Side.Red : Side.Black;
             }
 
         }
