@@ -36,9 +36,6 @@ namespace ConnectFour
 
         public Side Winner()
         {
-
-
-
             for (int row = 0; row < this.gb.GetLength(0); row++)
             {
                 for (int col = 0; col < this.gb.GetLength(1); col++)

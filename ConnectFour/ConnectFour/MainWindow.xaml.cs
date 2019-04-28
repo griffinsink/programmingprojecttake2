@@ -53,28 +53,12 @@ namespace ConnectFour
             timer.Start();
             gameCanvas.Children.Clear();
             inputLock = false;
-            //Background();
+
             WorkButton();
 
         }
 
-        private void Background()
-        {
-            for (int row = 0; row < board.gb.GetLength(0); row++)
-            {
-                for (int column = 0; column < board.gb.GetLength(1); column++)
-                {
-                    Rectangle square = new Rectangle();
-                    square.Height = chipSize;
-                    square.Width = chipSize;
-                    //square.Fill = (column % 2 == 0) ? Brushes.White : Brushes.WhiteSmoke;
-                    Canvas.SetBottom(square, chipSize * row);
-                    Canvas.SetRight(square, chipSize * column);
-                    gameCanvas.Children.Add(square);
 
-                }
-            }
-        }
 
         private void DrawCircle(Side side, int col)
         {
@@ -143,6 +127,7 @@ namespace ConnectFour
                     {
                         redCount = redCount + 1;
                         redscoretxtblock.Text = redCount.ToString(CultureInfo.CurrentCulture);
+                        MessageBox.Show("NAME Wins!");
                     }
 
                 }
@@ -152,6 +137,7 @@ namespace ConnectFour
                     {
                         blackCount = blackCount + 1;
                         bluescoretxtblock.Text = blackCount.ToString(CultureInfo.CurrentCulture);
+                        MessageBox.Show("SOMEONE Wins!");
                     }
                 }
                 StopButtons();
