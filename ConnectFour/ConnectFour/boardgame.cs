@@ -195,6 +195,7 @@ namespace ConnectFour
             return false;
         }
 
+
         public int PiecesInCol(int column)
         {
             int numOfPieces = 0;
