@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Timers;
-
+using System.Globalization;
 
 namespace ConnectFour
 {
@@ -139,17 +139,20 @@ namespace ConnectFour
             {
                 if (Side.Red == winner)
                 {
-                    redCount++;
-                    redScore.Items.Add(redCount);
-                    MessageBox.Show("Red wins!");
-                    
+                    if (Int32.TryParse(redscoretxtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out redCount) != null)
+                    {
+                        redCount = redCount + 1;
+                        redscoretxtblock.Text = redCount.ToString(CultureInfo.CurrentCulture);
+                    }
+
                 }
                 else if (Side.Black == winner)
                 {
-                    
-                    blackCount++;
-                    blueScore.Items.Add(blackCount);
-                    MessageBox.Show("Blue wins!");
+                    if (Int32.TryParse(bluescoretxtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out blackCount) != null)
+                    {
+                        blackCount = blackCount + 1;
+                        bluescoretxtblock.Text = blackCount.ToString(CultureInfo.CurrentCulture);
+                    }
                 }
                 StopButtons();
        
