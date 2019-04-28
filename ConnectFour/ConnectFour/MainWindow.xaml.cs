@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Timers;
 
+
 namespace ConnectFour
 {
     /// <summary>
@@ -22,7 +23,7 @@ namespace ConnectFour
     /// </summary>
     public partial class MainWindow : Window
     {
-        const int chipSize = 40;
+        const int chipSize = 58;
 
         private bg board;
         private bool inputLock;
@@ -77,11 +78,18 @@ namespace ConnectFour
 
         private void DrawCircle(Side side, int col)
         {
+           
             inputLock = true;
             Ellipse circle = new Ellipse();
             circle.Height = chipSize;
             circle.Width = chipSize;
-            circle.Fill = (side == Side.Black) ? Brushes.Red : Brushes.Black;
+            ImageBrush myBrush1 = new ImageBrush();
+            myBrush1.ImageSource = new BitmapImage(new Uri(@"https://cdn.vox-cdn.com/thumbor/szM90dEiVh0Ku6BaPGqfLccmmM4=/0x0:1333x1000/1200x800/filters:focal(561x394:773x606)/cdn.vox-cdn.com/uploads/chorus_image/image/56079971/dragon_fire.0.jpg", UriKind.Absolute));
+            ImageBrush myBrush2 = new ImageBrush();
+            myBrush2.ImageSource = new BitmapImage(new Uri(@"https://cdn.pixabay.com/photo/2017/01/31/16/59/bomb-2025548_960_720.png", UriKind.Absolute));
+
+
+            circle.Fill = (side == Side.Black) ? myBrush2 : myBrush1;
             Canvas.SetTop(circle, 0);
             Canvas.SetLeft(circle, col * 80);
             gameCanvas.Children.Add(circle);
