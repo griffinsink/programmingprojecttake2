@@ -69,6 +69,16 @@ namespace ConnectFour
             {
                 EnableSkipButton();
             }
+
+            if (player2Count == 5)
+            {
+                EnableColumnButton();
+
+            }
+            if (player1Count == 5)
+            {
+                EnableColumnButton();
+            }
         }
 
 
@@ -175,6 +185,10 @@ namespace ConnectFour
         {
             skipButton.IsEnabled = true;
         }
+        public void EnableColumnButton()
+        {
+            disable.IsEnabled = true;
+        }
 
         //stopping player from clicking the button
         public void StopButtons()
@@ -200,6 +214,7 @@ namespace ConnectFour
             Button6.IsEnabled = true;
             Button7.IsEnabled = true;
             skipButton.IsEnabled = false;
+            disable.IsEnabled = false;
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -298,8 +313,17 @@ namespace ConnectFour
           
             if(clickCounter > 1)
             {
-                MessageBox.Show("Player 1, it is your turn again!");
+                if (CurSide == Side.Player1)
+                {
+                    MessageBox.Show("Player 1, it is your turn again!");
+                }
+               else  if (CurSide == Side.player2)
+                {
+                    MessageBox.Show("Player 2, it is your turn again!");
+                }
+
             }
+
           
         }
 
@@ -309,7 +333,7 @@ namespace ConnectFour
 
             do
             {
-                if (redCount >= 3)
+                if (player1Count >= 3)
                 {
 
                     if (CurSide == Side.player2)
@@ -323,7 +347,7 @@ namespace ConnectFour
                     }
                 }
 
-                if (blackCount >= 3)
+                if (player2Count >= 3)
                 {
 
                     if (CurSide == Side.Player1)
