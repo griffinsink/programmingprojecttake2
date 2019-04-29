@@ -7,15 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="491.4" Width="698.2">
     <Grid>
-        <Grid x:Name="BlueScore" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175" Background="#FFD13A3A" Margin="-5,0,0,-3.4">
-            <Button x:Name="ButtonRestart" Content="New Round" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="45,350,0,0" Height="20" Click="ButtonRestart_Click"/>
-            <Label Content="Player 1 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14"/>
-            <Label Content="Player 2 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,195,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14"/>
-            <TextBlock x:Name="redscoretxtblock" HorizontalAlignment="Left" Margin="40,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="85"/>
-            <TextBlock x:Name="bluescoretxtblock" HorizontalAlignment="Left" Margin="40,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" Width="85"/>
-            <Button x:Name="newGamebtn" Content="New Game" HorizontalAlignment="Left" Margin="45,396,0,0" VerticalAlignment="Top" Width="80" Click="NewGamebtn_Click"/>
-            <Button Content="Wild Card" HorizontalAlignment="Left" Margin="45,310,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_1"/>
+        <Grid x:Name="BlueScore" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175"  Margin="-5,0,0,-3.4">
 
+            <Button x:Name="ButtonRestart" Content="New Round" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="45,350,0,0" Height="20" Click="ButtonRestart_Click"/>
+            <Label Content="Player 1 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFDFAFA"/>
+            <Label Content="Player 2 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,200,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFFFCFC"/>
+            <TextBlock x:Name="redscoretxtblock" HorizontalAlignment="Left" Margin="40,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="85" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFFBF8F8"/>
+            <TextBlock x:Name="bluescoretxtblock" HorizontalAlignment="Left" Margin="45,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" Width="85" Foreground="#FFF7F2F2" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
+            <Button x:Name="newGamebtn" Content="New Game" HorizontalAlignment="Left" Margin="45,396,0,0" VerticalAlignment="Top" Width="80" Click="NewGamebtn_Click"/>
+            <Button Content="Skip Turn" HorizontalAlignment="Left" Margin="45,310,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_1"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="https://jooinn.com/images/dark-stone-texture-1.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
         </Grid>
 
         <Button x:Name="Button1" Grid.Column="1" Click="Button1_Click" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="170,40,0,0"/>
@@ -26,11 +29,17 @@
         <Button x:Name="Button6" Grid.Column="6" Click="Button6_Click" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="545,40,0,0"/>
         <Button x:Name="Button7" Grid.Column="7" Click="Button7_Click" Content="✭" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="620,40,-3,0"/>
 
-        <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="525" Margin="170,0,-3,0" Background="#FF999999"/>
-        <Label x:Name="titleLabel" Content="Connect 4" HorizontalAlignment="Center" Margin="365,-2,207,0" Width="120" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" Foreground="#FFF3F1F1"/>
+        <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="525" Margin="170,0,-3,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="https://jooinn.com/images/dark-stone-texture-1.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+            <Label x:Name="titleLabel" Content="Game of Thrones Connect 4" HorizontalAlignment="Center" Margin="105,0,10,0" Width="410" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="20" Foreground="#FFF3F1F1"/>
+        </Grid>
         <!--<Border>-->
 
-        <Grid x:Name="gameGrid"  Height="400" Margin="170,60,-3,0" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" Background="#FFF6E6E6">
+        <Grid x:Name="gameGrid"  Height="400" Margin="170,60,-3,0" VerticalAlignment="Top" Width="525" OpacityMask="#FFDB3030" >
+
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -51,7 +60,9 @@
             </Grid.RowDefinitions>
 
             <Canvas x:Name="gameCanvas" Grid.ColumnSpan="7" HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="525" Margin="0,0,-0.2,-5"/>
-
+            <Grid.Background>
+                <ImageBrush ImageSource="https://www.blackpear.com/wordpress/wp-content/uploads/2017/05/Ice-Texture-for-Free-Download.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
         </Grid>
         <!--</Border>-->
 

@@ -33,7 +33,8 @@ namespace ConnectFour
         private Side CurSide;
         private Ellipse CurCir;
         private int CurCol;
-
+        int redCount = 0;
+        int blackCount = 0;
 
 
 
@@ -72,9 +73,9 @@ namespace ConnectFour
             circle.Height = chipSize;
             circle.Width = chipSize;
             ImageBrush myBrush1 = new ImageBrush();
-            myBrush1.ImageSource = new BitmapImage(new Uri(@"https://cdn.vox-cdn.com/thumbor/szM90dEiVh0Ku6BaPGqfLccmmM4=/0x0:1333x1000/1200x800/filters:focal(561x394:773x606)/cdn.vox-cdn.com/uploads/chorus_image/image/56079971/dragon_fire.0.jpg", UriKind.Absolute));
+            myBrush1.ImageSource = new BitmapImage(new Uri(@"https://upload.wikimedia.org/wikipedia/commons/6/63/African_elephant_warning_raised_trunk.jpg", UriKind.Absolute));
             ImageBrush myBrush2 = new ImageBrush();
-            myBrush2.ImageSource = new BitmapImage(new Uri(@"https://cdn.pixabay.com/photo/2017/01/31/16/59/bomb-2025548_960_720.png", UriKind.Absolute));
+            myBrush2.ImageSource = new BitmapImage(new Uri(@"https://media.popculture.com/2017/08/game-of-thrones-cersei-lannister-20009418-1280x0.jpg", UriKind.Absolute));
 
 
             circle.Fill = (side == Side.player2) ? myBrush2 : myBrush1;
@@ -123,8 +124,7 @@ namespace ConnectFour
         private void AfterTurn()
         {
             Side winner = board.Winner();
-            int redCount = 0;
-            int blackCount = 0;
+            
             if (winner != Side.None)
             {
                 if (Side.Player1 == winner)
@@ -248,7 +248,38 @@ namespace ConnectFour
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            int clickCounter = 0;
+
+            do
+            {
+                if (redCount >= 3)
+                {
+                    if (CurSide == Side.player2)
+                    {
+                        clickCounter++;
+                        AfterTurn();
+
+                    }
+                }
+
+                if (blackCount >= 3)
+                {
+
+                    if (CurSide == Side.Player1)
+                    {
+                        
+                        AfterTurn();
+
+                    }
+                }
+                clickCounter++;
+
+            } while (clickCounter == 0) ; 
+          
+            if(clickCounter > 0)
+            {
+                MessageBox.Show("Power up has already been used!");
+            }
         }
     }
 }
