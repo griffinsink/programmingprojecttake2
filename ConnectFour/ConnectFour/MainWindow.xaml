@@ -16,7 +16,7 @@
             <TextBlock x:Name="bluescoretxtblock" HorizontalAlignment="Left" Margin="45,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" Width="85" Foreground="#FFF7F2F2" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
             <Button x:Name="newGamebtn" Content="New Game" HorizontalAlignment="Left" Margin="90,436,0,0" VerticalAlignment="Top" Width="80" Click="NewGamebtn_Click"/>
             <Button x:Name="skipButton" Content="Skip Turn" HorizontalAlignment="Left" Margin="50,335,0,0" VerticalAlignment="Top" Width="80" Click="skipButton_Click"/>
-            <Button Content="Disable Drop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="50,360,0,0" Height="20"/>
+            <Button x:Name="disable" Content="Disable Drop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="50,360,0,0" Height="20" Click="Disable_Click"/>
             <Label x:Name="powerUps" Content="Power-Ups" HorizontalAlignment="Left" Margin="40,296,0,0" VerticalAlignment="Top" Width="95" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFFFCFC"/>
             <Grid.Background>
                 <ImageBrush ImageSource="https://jooinn.com/images/dark-stone-texture-1.jpg" Stretch="UniformToFill"/>

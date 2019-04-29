@@ -302,5 +302,41 @@ namespace ConnectFour
             }
           
         }
+
+        private void Disable_Click(object sender, RoutedEventArgs e)
+        {
+            int clickCounter = 1;
+
+            do
+            {
+                if (redCount >= 3)
+                {
+
+                    if (CurSide == Side.player2)
+                    {
+
+                        
+                        Button4.IsEnabled = false;
+                        disable.IsEnabled = false;
+
+                        clickCounter++;
+                    }
+                }
+
+                if (blackCount >= 3)
+                {
+
+                    if (CurSide == Side.Player1)
+                    {
+
+                        Button4.IsEnabled = false;
+                        disable.IsEnabled = false;
+                        clickCounter++;
+                    }
+                }
+
+
+            } while (clickCounter == 1);
+        }
     }
 }
