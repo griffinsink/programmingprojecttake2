@@ -215,13 +215,6 @@ namespace ConnectFour
 
 
 
-
-
-
-
-
-
-
         private void ButtonRestart_Click(object sender, RoutedEventArgs e)
         {
             NewGame();
@@ -230,14 +223,16 @@ namespace ConnectFour
         private void RedScore_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AfterTurn();
-
-            MessageBox.Show("Red wins!");
         }
 
         private void BlueScore_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AfterTurn();
-            MessageBox.Show("Blue wins!");
+        }
+
+        private void NewGamebtn_Click(object sender, RoutedEventArgs e)
+        {
+            redscoretxtblock.
         }
     }
 }
