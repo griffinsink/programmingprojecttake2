@@ -161,6 +161,7 @@ namespace ConnectFour
 
         }
 
+        //stopping player from clicking the button
         public void StopButtons()
         {
             Button1.IsEnabled = false;
@@ -172,6 +173,7 @@ namespace ConnectFour
             Button7.IsEnabled = false;
         }
 
+        //enables the button
         public void WorkButton()
         {
             Button1.IsEnabled = true;
