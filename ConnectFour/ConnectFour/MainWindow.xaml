@@ -9,13 +9,15 @@
     <Grid>
         <Grid x:Name="BlueScore" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175"  Margin="-5,0,0,-3.4">
 
-            <Button x:Name="ButtonRestart" Content="New Round" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="45,350,0,0" Height="20" Click="ButtonRestart_Click"/>
-            <Label Content="Player 1 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFDFAFA"/>
-            <Label Content="Player 2 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,200,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFFFCFC"/>
-            <TextBlock x:Name="redscoretxtblock" HorizontalAlignment="Left" Margin="40,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="85" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFFBF8F8"/>
-            <TextBlock x:Name="bluescoretxtblock" HorizontalAlignment="Left" Margin="45,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" Width="85" Foreground="#FFF7F2F2" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
-            <Button x:Name="newGamebtn" Content="New Game" HorizontalAlignment="Left" Margin="45,396,0,0" VerticalAlignment="Top" Width="80" Click="NewGamebtn_Click"/>
-            <Button x:Name="skipButton" Content="Skip Turn" HorizontalAlignment="Left" Margin="45,310,0,0" VerticalAlignment="Top" Width="80" Click="skipButton_Click"/>
+            <Button x:Name="ButtonRestart" Content="New Round" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="5,435,0,0" Height="20" Click="ButtonRestart_Click"/>
+            <Label Content="Player 1 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,31,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFDFAFA"/>
+            <Label Content="Player 2 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,166,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFFFCFC"/>
+            <TextBlock x:Name="redscoretxtblock" HorizontalAlignment="Left" Margin="50,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="85" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFFBF8F8"/>
+            <TextBlock x:Name="bluescoretxtblock" HorizontalAlignment="Left" Margin="45,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" Width="85" Foreground="#FFF7F2F2" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
+            <Button x:Name="newGamebtn" Content="New Game" HorizontalAlignment="Left" Margin="90,436,0,0" VerticalAlignment="Top" Width="80" Click="NewGamebtn_Click"/>
+            <Button x:Name="skipButton" Content="Skip Turn" HorizontalAlignment="Left" Margin="50,335,0,0" VerticalAlignment="Top" Width="80" Click="skipButton_Click"/>
+            <Button Content="Disable Drop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="50,360,0,0" Height="20"/>
+            <Label x:Name="powerUps" Content="Power-Ups" HorizontalAlignment="Left" Margin="40,296,0,0" VerticalAlignment="Top" Width="95" FontFamily="Segoe UI Black" FontSize="14" Foreground="#FFFFFCFC"/>
             <Grid.Background>
                 <ImageBrush ImageSource="https://jooinn.com/images/dark-stone-texture-1.jpg" Stretch="UniformToFill"/>
             </Grid.Background>
