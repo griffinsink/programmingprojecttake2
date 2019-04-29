@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Mason, Jack and Griffin worked on this while referencing Dharma Bellamkonda's connect four game
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +45,7 @@ namespace ConnectFour
             NewGame();
         }
 
+        //This button is used to create a new game and it contains the features that allows each chip to fall at a certain speed and for the board to be set up 6 by 7
         private void NewGame()
         {
             inputLock = true;
@@ -60,6 +63,7 @@ namespace ConnectFour
 
 
 
+        //Here we are creating each chip and telling it  where to fall when we press each button for the row it needs to go
         private void DrawCircle(Side side, int col)
         {
 
@@ -82,6 +86,7 @@ namespace ConnectFour
 
         }
 
+        //This is where the chip actually falls
         private void dropping(object sender, EventArgs e)
         {
             int dropL = chipSize * (board.gb.GetLength(1) - 1 - board.ColPieces(CurCol));
@@ -114,6 +119,7 @@ namespace ConnectFour
             }
         }
 
+        //In this we determine if the game is over or not and if so who won and then count that in our textblock as well as display a messagebox
         private void AfterTurn()
         {
             Side winner = board.Winner();
@@ -240,7 +246,7 @@ namespace ConnectFour
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            column
+            
         }
     }
 }
