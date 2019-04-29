@@ -60,7 +60,15 @@ namespace ConnectFour
             inputLock = false;
 
             WorkButton();
-
+            if (blackCount == 3)
+            {
+                EnableSkipButton();
+            }
+            
+            if (redCount == 3)
+            {
+                EnableSkipButton();
+            }
         }
 
 
@@ -135,6 +143,7 @@ namespace ConnectFour
                         redCount = redCount + 1;
                         redscoretxtblock.Text = redCount.ToString(CultureInfo.CurrentCulture);
                         MessageBox.Show("Player 1 Wins!");
+                       
                     }
 
                 }
@@ -145,6 +154,7 @@ namespace ConnectFour
                         blackCount = blackCount + 1;
                         bluescoretxtblock.Text = blackCount.ToString(CultureInfo.CurrentCulture);
                         MessageBox.Show("Player 2 Wins!");
+                      
                     }
                 }
                 StopButtons();
@@ -160,6 +170,10 @@ namespace ConnectFour
                 CurSide = (CurSide == Side.player2) ? Side.Player1 : Side.player2;
             }
 
+        }
+        public void EnableSkipButton()
+        {
+            skipButton.IsEnabled = true;
         }
 
         //stopping player from clicking the button
@@ -185,6 +199,7 @@ namespace ConnectFour
             Button5.IsEnabled = true;
             Button6.IsEnabled = true;
             Button7.IsEnabled = true;
+            skipButton.IsEnabled = false;
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
@@ -251,11 +266,12 @@ namespace ConnectFour
         private void skipButton_Click(object sender, RoutedEventArgs e)
         {
             int clickCounter = 1;
-
+           
             do
             {
                 if (redCount >= 3)
                 {
+                    
                     if (CurSide == Side.player2)
                     {
                         
@@ -267,7 +283,7 @@ namespace ConnectFour
 
                 if (blackCount >= 3)
                 {
-
+                    
                     if (CurSide == Side.Player1)
                     {
                         
@@ -282,8 +298,9 @@ namespace ConnectFour
           
             if(clickCounter > 1)
             {
-                MessageBox.Show("Power up has already been used!");
+                MessageBox.Show("Player 1, it is your turn again!");
             }
+          
         }
     }
 }
