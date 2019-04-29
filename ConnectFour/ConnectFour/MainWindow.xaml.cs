@@ -171,6 +171,7 @@ namespace ConnectFour
             Button5.IsEnabled = false;
             Button6.IsEnabled = false;
             Button7.IsEnabled = false;
+            
         }
 
         //enables the button
@@ -246,9 +247,9 @@ namespace ConnectFour
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void skipButton_Click(object sender, RoutedEventArgs e)
         {
-            int clickCounter = 0;
+            int clickCounter = 1;
 
             do
             {
@@ -256,9 +257,10 @@ namespace ConnectFour
                 {
                     if (CurSide == Side.player2)
                     {
-                        clickCounter++;
+                        
                         AfterTurn();
-
+                        skipButton.IsEnabled = false;
+                        clickCounter++;
                     }
                 }
 
@@ -269,14 +271,15 @@ namespace ConnectFour
                     {
                         
                         AfterTurn();
-
+                        skipButton.IsEnabled = false;
+                        clickCounter++;
                     }
                 }
-                clickCounter++;
+                
 
-            } while (clickCounter == 0) ; 
+            } while (clickCounter == 1) ; 
           
-            if(clickCounter > 0)
+            if(clickCounter > 1)
             {
                 MessageBox.Show("Power up has already been used!");
             }
