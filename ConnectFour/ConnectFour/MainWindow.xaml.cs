@@ -33,8 +33,8 @@ namespace ConnectFour
         private Side CurSide;
         private Ellipse CurCir;
         private int CurCol;
-        int redCount = 0;
-        int blackCount = 0;
+        int player1Count = 0;
+        int player2Count = 0;
 
 
 
@@ -60,12 +60,12 @@ namespace ConnectFour
             inputLock = false;
 
             WorkButton();
-            if (blackCount == 3)
+            if (player2Count == 3)
             {
                 EnableSkipButton();
             }
             
-            if (redCount == 3)
+            if (player1Count == 3)
             {
                 EnableSkipButton();
             }
@@ -138,10 +138,10 @@ namespace ConnectFour
             {
                 if (Side.Player1 == winner)
                 {
-                    if (Int32.TryParse(redscoretxtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out redCount) != null)
+                    if (Int32.TryParse(player1txtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out player1Count) != null)
                     {
-                        redCount = redCount + 1;
-                        redscoretxtblock.Text = redCount.ToString(CultureInfo.CurrentCulture);
+                        player1Count = player1Count + 1;
+                        player1txtblock.Text = player1Count.ToString(CultureInfo.CurrentCulture);
                         MessageBox.Show("Player 1 Wins!");
                        
                     }
@@ -149,10 +149,10 @@ namespace ConnectFour
                 }
                 else if (Side.player2 == winner)
                 {
-                    if (Int32.TryParse(bluescoretxtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out blackCount) != null)
+                    if (Int32.TryParse(player2txtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out player2Count) != null)
                     {
-                        blackCount = blackCount + 1;
-                        bluescoretxtblock.Text = blackCount.ToString(CultureInfo.CurrentCulture);
+                        player2Count = player2Count + 1;
+                        player2txtblock.Text = player2Count.ToString(CultureInfo.CurrentCulture);
                         MessageBox.Show("Player 2 Wins!");
                       
                     }
@@ -258,8 +258,8 @@ namespace ConnectFour
         private void NewGamebtn_Click(object sender, RoutedEventArgs e)
         {
             NewGame();
-            redscoretxtblock.Text = string.Empty;
-            bluescoretxtblock.Text = string.Empty;
+            player1txtblock.Text = string.Empty;
+            player2txtblock.Text = string.Empty;
 
         }
 
@@ -269,7 +269,7 @@ namespace ConnectFour
            
             do
             {
-                if (redCount >= 3)
+                if (player1Count >= 3)
                 {
                     
                     if (CurSide == Side.player2)
@@ -281,7 +281,7 @@ namespace ConnectFour
                     }
                 }
 
-                if (blackCount >= 3)
+                if (player2Count >= 3)
                 {
                     
                     if (CurSide == Side.Player1)
