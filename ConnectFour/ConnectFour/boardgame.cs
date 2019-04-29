@@ -153,11 +153,7 @@ namespace ConnectFour
 
         }
 
-        //private bool WildCard()
-        //{
-        //    ForDiagFour(3, 2);
-        //    return WildCard();
-        //}
+        
 
         private bool BackDiagFour(int row, int col)
         {
