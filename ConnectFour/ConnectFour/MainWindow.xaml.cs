@@ -31,7 +31,7 @@ namespace ConnectFour
         private Side CurSide;
         private Ellipse CurCir;
         private int CurCol;
-        
+
 
 
 
@@ -62,7 +62,7 @@ namespace ConnectFour
 
         private void DrawCircle(Side side, int col)
         {
-           
+
             inputLock = true;
             Ellipse circle = new Ellipse();
             circle.Height = chipSize;
@@ -100,7 +100,7 @@ namespace ConnectFour
 
         private void Button_Click(int column)
         {
-            if(inputLock == false)
+            if (inputLock == false)
             {
                 bool success = board.Insert(CurSide, column);
                 if (success)
@@ -108,9 +108,9 @@ namespace ConnectFour
                     CurCol = column;
                     DrawCircle(CurSide, column);
                     AfterTurn();
-                   
+
                 }
-                    
+
             }
         }
 
@@ -119,7 +119,7 @@ namespace ConnectFour
             Side winner = board.Winner();
             int redCount = 0;
             int blackCount = 0;
-            if(winner != Side.None)
+            if (winner != Side.None)
             {
                 if (Side.Red == winner)
                 {
@@ -141,16 +141,16 @@ namespace ConnectFour
                     }
                 }
                 StopButtons();
-       
+
             }
             else if (board.Tie())
             {
                 StopButtons();
-                
+
             }
             else
             {
-            CurSide = (CurSide == Side.Black) ? Side.Red : Side.Black;
+                CurSide = (CurSide == Side.Black) ? Side.Red : Side.Black;
             }
 
         }
@@ -232,7 +232,10 @@ namespace ConnectFour
 
         private void NewGamebtn_Click(object sender, RoutedEventArgs e)
         {
-            redscoretxtblock.
+            NewGame();
+            redscoretxtblock.Text = string.Empty;
+            bluescoretxtblock.Text = string.Empty;
+
         }
     }
 }
