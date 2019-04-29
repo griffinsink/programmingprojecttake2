@@ -17,8 +17,12 @@ namespace ConnectFour
         {
             gb = new Side[rows, columns];
             for (int row = 0; row < this.gb.GetLength(0); row++)
+            {
                 for (int col = 0; col < this.gb.GetLength(1); col++)
+                {
                     this.gb[row, col] = Side.None;
+                }
+            }
         }
 
         public bool Tie()
@@ -27,7 +31,6 @@ namespace ConnectFour
             {
                 if (gb[0, col] == Side.None)
                 {
-
                     return false;
                 }
             }
@@ -54,9 +57,7 @@ namespace ConnectFour
         {
             int point = 0;
 
-            if (gb[row, col] != Side.None &&
-                (VertFour(row, col) || HorFour(row, col) ||
-                ForDiagFour(row, col) || BackDiagFour(row, col)))
+            if (gb[row, col] != Side.None && (VertFour(row, col) || HorFour(row, col) || ForDiagFour(row, col) || BackDiagFour(row, col)))
             {
                 point++;
                 return gb[row, col];
@@ -154,14 +155,15 @@ namespace ConnectFour
 
         //private bool WildCard()
         //{
-        //    Random rnd = new Random();
-            
+
         //}
 
         private bool BackDiagFour(int row, int col)
         {
             if (gb[row, col] == Side.None)
+            {
                 return false;
+            }
             int count = 1;
             int RowCur = row + 1;
             int ColCur = col + 1;
@@ -180,7 +182,10 @@ namespace ConnectFour
                 ColCur--;
             }
             if (count < 4)
+            {
                 return false;
+
+            }
             return true;
         }
 
