@@ -50,7 +50,7 @@ namespace ConnectFour
         {
             inputLock = true;
             board = new bg(6, 7);
-            CurSide = Side.Red;
+            CurSide = Side.Player1;
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 15);
             timer.Start();
@@ -77,7 +77,7 @@ namespace ConnectFour
             myBrush2.ImageSource = new BitmapImage(new Uri(@"https://cdn.pixabay.com/photo/2017/01/31/16/59/bomb-2025548_960_720.png", UriKind.Absolute));
 
 
-            circle.Fill = (side == Side.Black) ? myBrush2 : myBrush1;
+            circle.Fill = (side == Side.player2) ? myBrush2 : myBrush1;
             Canvas.SetTop(circle, 0);
             Canvas.SetLeft(circle, col * 80);
             gameCanvas.Children.Add(circle);
@@ -127,7 +127,7 @@ namespace ConnectFour
             int blackCount = 0;
             if (winner != Side.None)
             {
-                if (Side.Red == winner)
+                if (Side.Player1 == winner)
                 {
                     if (Int32.TryParse(redscoretxtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out redCount) != null)
                     {
@@ -137,7 +137,7 @@ namespace ConnectFour
                     }
 
                 }
-                else if (Side.Black == winner)
+                else if (Side.player2 == winner)
                 {
                     if (Int32.TryParse(bluescoretxtblock.Text, NumberStyles.Integer, CultureInfo.CurrentCulture, out blackCount) != null)
                     {
@@ -156,7 +156,7 @@ namespace ConnectFour
             }
             else
             {
-                CurSide = (CurSide == Side.Black) ? Side.Red : Side.Black;
+                CurSide = (CurSide == Side.player2) ? Side.Player1 : Side.player2;
             }
 
         }

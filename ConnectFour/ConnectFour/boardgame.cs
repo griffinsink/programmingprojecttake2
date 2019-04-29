@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConnectFour
 {
 
-    public enum Side { None, Red, Black };
+    public enum Side { None, Player1, player2 };
 
     public class bg
     {
