@@ -152,6 +152,12 @@ namespace ConnectFour
 
         }
 
+        //private bool WildCard()
+        //{
+        //    Random rnd = new Random();
+            
+        //}
+
         private bool BackDiagFour(int row, int col)
         {
             if (gb[row, col] == Side.None)

@@ -127,7 +127,7 @@ namespace ConnectFour
                     {
                         redCount = redCount + 1;
                         redscoretxtblock.Text = redCount.ToString(CultureInfo.CurrentCulture);
-                        MessageBox.Show("NAME Wins!");
+                        MessageBox.Show("Player 1 Wins!");
                     }
 
                 }
@@ -137,7 +137,7 @@ namespace ConnectFour
                     {
                         blackCount = blackCount + 1;
                         bluescoretxtblock.Text = blackCount.ToString(CultureInfo.CurrentCulture);
-                        MessageBox.Show("SOMEONE Wins!");
+                        MessageBox.Show("Player 2 Wins!");
                     }
                 }
                 StopButtons();
@@ -236,6 +236,11 @@ namespace ConnectFour
             redscoretxtblock.Text = string.Empty;
             bluescoretxtblock.Text = string.Empty;
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            column
         }
     }
 }

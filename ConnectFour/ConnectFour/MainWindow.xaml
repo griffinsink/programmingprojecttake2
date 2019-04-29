@@ -9,12 +9,12 @@
     <Grid>
         <Grid x:Name="BlueScore" HorizontalAlignment="Left" Height="465" VerticalAlignment="Top" Width="175" Background="#FFD13A3A" Margin="-5,0,0,-3.4">
             <Button x:Name="ButtonRestart" Content="New Round" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="45,350,0,0" Height="20" Click="ButtonRestart_Click"/>
-            <Label Content="Red Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="95" FontFamily="Segoe UI Black" FontSize="14"/>
-            <Label Content="Blue Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,195,0,0" Width="85" FontFamily="Segoe UI Black" FontSize="14"/>
+            <Label Content="Player 1 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,76,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14"/>
+            <Label Content="Player 2 Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,195,0,0" Width="115" FontFamily="Segoe UI Black" FontSize="14"/>
             <TextBlock x:Name="redscoretxtblock" HorizontalAlignment="Left" Margin="40,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="82" Width="85"/>
             <TextBlock x:Name="bluescoretxtblock" HorizontalAlignment="Left" Margin="40,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="78" Width="85"/>
             <Button x:Name="newGamebtn" Content="New Game" HorizontalAlignment="Left" Margin="45,396,0,0" VerticalAlignment="Top" Width="80" Click="NewGamebtn_Click"/>
-            <Button Content="Wild Card" HorizontalAlignment="Left" Margin="45,310,0,0" VerticalAlignment="Top" Width="80"/>
+            <Button Content="Wild Card" HorizontalAlignment="Left" Margin="45,310,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click_1"/>
 
         </Grid>
 
