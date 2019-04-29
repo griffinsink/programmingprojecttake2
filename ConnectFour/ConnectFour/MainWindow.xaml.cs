@@ -309,7 +309,7 @@ namespace ConnectFour
 
             do
             {
-                if (redCount >= 3)
+                if (player1Count >= 3)
                 {
 
                     if (CurSide == Side.player2)
@@ -323,7 +323,7 @@ namespace ConnectFour
                     }
                 }
 
-                if (blackCount >= 3)
+                if (player2Count >= 3)
                 {
 
                     if (CurSide == Side.Player1)
