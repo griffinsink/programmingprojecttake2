@@ -44,7 +44,7 @@ namespace ConnectFour
         {
             InitializeComponent();
             NewGame();
-            MessageBox.Show("Welcome to Kings Landing! Your task if, you so choose to take it is to connect 4 pieces together to win the 7 Kingdoms. If you win 3 games you can click 'skip turn', and your opponent will loose a turn.");
+            MessageBox.Show("Welcome to Kings Landing! You have been tasked to connect 4 pieces together to win the 7 Kingdoms. If you win 3 games you can click 'skip turn', and your opponent will loose a turn. If you win");
         }
 
         //This button is used to create a new game and it contains the features that allows each chip to fall at a certain speed and for the board to be set up 6 by 7
