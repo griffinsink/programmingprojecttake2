@@ -44,7 +44,10 @@ namespace ConnectFour
         {
             InitializeComponent();
             NewGame();
-            MessageBox.Show("Welcome to Kings Landing! You have been tasked to connect 4 pieces together to win the 7 Kingdoms. If you win 3 games you can click 'skip turn', and your opponent will loose a turn. If you win");
+            MessageBox.Show("Welcome to Kings Landing! You have been tasked to connect 4 pieces together to win the 7 Kingdoms. " +
+                "If you win 3 games you can click \"skip turn\", and your opponent will loose a turn. " +
+                "If you win 5 times you can click \"Disable Drop\" and the center button will no longer work." +
+                " Make sure to play strategically so that you can have your chance at the Iron Throne!");
         }
 
         //This button is used to create a new game and it contains the features that allows each chip to fall at a certain speed and for the board to be set up 6 by 7
@@ -331,36 +334,37 @@ namespace ConnectFour
         {
             int clickCounter = 1;
 
-            do
-            {
-                if (player1Count >= 3)
+                do
                 {
-
-                    if (CurSide == Side.player2)
+                    if (player1Count >= 3)
                     {
 
-                        
-                        Button4.IsEnabled = false;
-                        disable.IsEnabled = false;
+                        if (CurSide == Side.player2)
+                        {
 
-                        clickCounter++;
+
+                            Button4.IsEnabled = false;
+                            disable.IsEnabled = false;
+
+                            clickCounter++;
+                        }
                     }
-                }
 
-                if (player2Count >= 3)
-                {
-
-                    if (CurSide == Side.Player1)
+                    if (player2Count >= 3)
                     {
 
-                        Button4.IsEnabled = false;
-                        disable.IsEnabled = false;
-                        clickCounter++;
+                        if (CurSide == Side.Player1)
+                        {
+
+                            Button4.IsEnabled = false;
+                            disable.IsEnabled = false;
+                            clickCounter++;
+                        }
                     }
-                }
 
 
-            } while (clickCounter == 1);
+                } while (clickCounter == 1);
+            
         }
     }
 }
